@@ -16,8 +16,6 @@
 		4ED6567817110B14005FEE56 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4ED6567617110B14005FEE56 /* InfoPlist.strings */; };
 		4ED6567B17110B14005FEE56 /* JVectorClockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED6567A17110B14005FEE56 /* JVectorClockTests.m */; };
 		4ED6569A17110BED005FEE56 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED6568917110BC8005FEE56 /* Foundation.framework */; };
-		4ED6569F17110BEE005FEE56 /* JVectorClock_iOS.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4ED6569E17110BEE005FEE56 /* JVectorClock_iOS.h */; };
-		4ED656A117110BEE005FEE56 /* JVectorClock_iOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED656A017110BEE005FEE56 /* JVectorClock_iOS.m */; };
 		4ED656A517111044005FEE56 /* JVectorClock.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED6566517110B14005FEE56 /* JVectorClock.m */; };
 /* End PBXBuildFile section */
 
@@ -38,7 +36,6 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
-				4ED6569F17110BEE005FEE56 /* JVectorClock_iOS.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,8 +61,6 @@
 		4ED6568917110BC8005FEE56 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4ED6569917110BED005FEE56 /* libJVectorClock-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libJVectorClock-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ED6569D17110BEE005FEE56 /* JVectorClock-iOS-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JVectorClock-iOS-Prefix.pch"; sourceTree = "<group>"; };
-		4ED6569E17110BEE005FEE56 /* JVectorClock_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JVectorClock_iOS.h; sourceTree = "<group>"; };
-		4ED656A017110BEE005FEE56 /* JVectorClock_iOS.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JVectorClock_iOS.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,8 +177,6 @@
 		4ED6569B17110BED005FEE56 /* JVectorClock-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				4ED6569E17110BEE005FEE56 /* JVectorClock_iOS.h */,
-				4ED656A017110BEE005FEE56 /* JVectorClock_iOS.m */,
 				4ED6569C17110BEE005FEE56 /* Supporting Files */,
 			);
 			path = "JVectorClock-iOS";
@@ -348,7 +341,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4ED656A117110BEE005FEE56 /* JVectorClock_iOS.m in Sources */,
 				4ED656A517111044005FEE56 /* JVectorClock.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -508,7 +500,7 @@
 				DSTROOT = /tmp/JVectorClock_iOS.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JVectorClock-iOS/JVectorClock-iOS-Prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -522,7 +514,7 @@
 				DSTROOT = /tmp/JVectorClock_iOS.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JVectorClock-iOS/JVectorClock-iOS-Prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
