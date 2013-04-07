@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'JVectorClock-iOS' target in the 'JVectorClock-iOS' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+#endif
