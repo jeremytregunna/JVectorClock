@@ -16,8 +16,6 @@ typedef NS_ENUM(char, JVectorClockComparisonResult)
     JOrderedConcurrent,
 };
 
-@class JNode;
-
 @interface JVectorClock : NSObject
 
 - (JVectorClockComparisonResult)compare:(JVectorClock*)other;
