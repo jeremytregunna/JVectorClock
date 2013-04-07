@@ -1,6 +1,6 @@
 //
 //  JVectorClock.h
-//  JGossip
+//  JVectorClock
 //
 //  Created by Jeremy Tregunna on 2013-04-06.
 //  Copyright (c) 2013 Jeremy Tregunna. All rights reserved.
@@ -25,6 +25,7 @@ typedef NS_ENUM(char, JVectorClockComparisonResult)
 - (instancetype)mergeClock:(JVectorClock*)other;
 
 - (id)objectForKeyedSubscript:(id)aKey;
+- (NSUInteger)clockValueForNodeID:(uint32_t)nodeID;
 
 - (NSString*)UTF8String;
 

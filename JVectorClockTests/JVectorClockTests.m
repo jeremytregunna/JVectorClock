@@ -31,6 +31,20 @@
     STAssertNotNil(clock, @"Create an instance");
 }
 
+- (void)testNewClockHasValueOfZero
+{
+    JVectorClock* clock = [[JVectorClock alloc] init];
+    STAssertEquals([clock clockValueForNodeID:42], (NSUInteger)0, @"New clocks have a value of 0");
+}
+
+- (void)testKnownClockHasValueOfTwo
+{
+    JVectorClock* clock = [[JVectorClock alloc] init];
+    [clock forkClockForNodeID:42];
+    [clock forkClockForNodeID:42];
+    STAssertEquals([clock clockValueForNodeID:42], (NSUInteger)2, @"Clocks increment their clock value on fork events");
+}
+
 - (void)testSeedPrettyPrint
 {
     NSString* prettyString = [_seed UTF8String];
