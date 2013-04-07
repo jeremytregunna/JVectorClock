@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'JVectorClock' target in the 'JVectorClock' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
