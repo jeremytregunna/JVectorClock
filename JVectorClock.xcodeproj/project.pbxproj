@@ -18,6 +18,7 @@
 		4ED6569A17110BED005FEE56 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED6568917110BC8005FEE56 /* Foundation.framework */; };
 		4ED6569F17110BEE005FEE56 /* JVectorClock_iOS.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4ED6569E17110BEE005FEE56 /* JVectorClock_iOS.h */; };
 		4ED656A117110BEE005FEE56 /* JVectorClock_iOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED656A017110BEE005FEE56 /* JVectorClock_iOS.m */; };
+		4ED656A517111044005FEE56 /* JVectorClock.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED6566517110B14005FEE56 /* JVectorClock.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -348,6 +349,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4ED656A117110BEE005FEE56 /* JVectorClock_iOS.m in Sources */,
+				4ED656A517111044005FEE56 /* JVectorClock.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,7 +452,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JVectorClock/JVectorClock-Prefix.pch";
 				INFOPLIST_FILE = "JVectorClock/JVectorClock-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Debug;
@@ -465,7 +469,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JVectorClock/JVectorClock-Prefix.pch";
 				INFOPLIST_FILE = "JVectorClock/JVectorClock-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Release;
