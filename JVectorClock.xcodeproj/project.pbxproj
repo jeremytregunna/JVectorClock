@@ -444,6 +444,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JVectorClock/JVectorClock-Prefix.pch";
 				INFOPLIST_FILE = "JVectorClock/JVectorClock-Info.plist";
+				INSTALL_PATH = "@rpath";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Resources";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -461,6 +463,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JVectorClock/JVectorClock-Prefix.pch";
 				INFOPLIST_FILE = "JVectorClock/JVectorClock-Info.plist";
+				INSTALL_PATH = "@rpath";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Resources";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -542,6 +546,7 @@
 				4ED6568017110B14005FEE56 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4ED6568117110B14005FEE56 /* Build configuration list for PBXNativeTarget "JVectorClockTests" */ = {
 			isa = XCConfigurationList;
@@ -550,6 +555,7 @@
 				4ED6568317110B14005FEE56 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4ED656A217110BEE005FEE56 /* Build configuration list for PBXNativeTarget "JVectorClock-iOS" */ = {
 			isa = XCConfigurationList;
@@ -558,6 +564,7 @@
 				4ED656A417110BEE005FEE56 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
