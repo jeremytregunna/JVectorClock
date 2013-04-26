@@ -92,7 +92,7 @@ static NSComparisonResult JVectorClockComparisonSort(NSNumber* aNumber, NSNumber
 
 #pragma mark - Vector clock operations
 
-- (void)forkClockForNodeID:(uint32_t)nodeID
+- (void)forkClockForNodeID:(uint64_t)nodeID
 {
     @synchronized(self)
     {
@@ -132,7 +132,7 @@ static NSComparisonResult JVectorClockComparisonSort(NSNumber* aNumber, NSNumber
 
 #pragma mark - Retrieving
 
-- (NSUInteger)clockValueForNodeID:(uint32_t)nodeID
+- (NSUInteger)clockValueForNodeID:(uint64_t)nodeID
 {
     return [self[@(nodeID)] unsignedIntegerValue];
 }
