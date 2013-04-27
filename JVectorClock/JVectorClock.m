@@ -97,7 +97,7 @@ static NSComparisonResult JVectorClockComparisonSort(NSNumber* aNumber, NSNumber
     @synchronized(self)
     {
         NSNumber* clock = _clockOptions[@(nodeID)];
-        _clockOptions[@(nodeID)] = clock ? @([clock unsignedIntegerValue] + 1) : @1;
+        _clockOptions[@(nodeID)] = clock ? @([clock unsignedLongLongValue] + 1) : @1;
     }
 }
 
@@ -111,7 +111,7 @@ static NSComparisonResult JVectorClockComparisonSort(NSNumber* aNumber, NSNumber
     }];
 
     [[other.clockOptions allKeys] enumerateObjectsUsingBlock:^(NSNumber* obj, NSUInteger idx, BOOL* stop) {
-        if(clockOptions[obj] == nil || [clockOptions[obj] unsignedIntValue] < [other[obj] unsignedIntValue])
+        if(clockOptions[obj] == nil || [clockOptions[obj] unsignedLongLongValue] < [other[obj] unsignedLongLongValue])
         {
             clockOptions[obj] = other[obj];
         }
@@ -134,7 +134,7 @@ static NSComparisonResult JVectorClockComparisonSort(NSNumber* aNumber, NSNumber
 
 - (NSUInteger)clockValueForNodeID:(uint64_t)nodeID
 {
-    return [self[@(nodeID)] unsignedIntegerValue];
+    return [self[@(nodeID)] unsignedLongLongValue];
 }
 
 #pragma mark - Pretty printing
