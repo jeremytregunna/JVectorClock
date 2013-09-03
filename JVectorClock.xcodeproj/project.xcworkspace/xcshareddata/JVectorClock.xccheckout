@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>92F5CC15-9C89-49A2-8A7E-BABAEFC0F82C</string>
+	<key>IDESourceControlProjectName</key>
+	<string>JVectorClock</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>EABBFB1E-37B3-415C-A5BA-04B4FD9F0B44</key>
+		<string>ssh://github.com/jeremytregunna/JVectorClock.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>JVectorClock.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>EABBFB1E-37B3-415C-A5BA-04B4FD9F0B44</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/jeremytregunna/JVectorClock.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>EABBFB1E-37B3-415C-A5BA-04B4FD9F0B44</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>EABBFB1E-37B3-415C-A5BA-04B4FD9F0B44</string>
+			<key>IDESourceControlWCCName</key>
+			<string>JVectorClock</string>
+		</dict>
+	</array>
+</dict>
+</plist>
