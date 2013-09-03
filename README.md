@@ -3,6 +3,8 @@ Copyright © 2013, Jeremy Tregunna, All Rights Reserved.
 
 JVectorClock is an implementation of a [Vector Clock](http://en.wikipedia.org/wiki/Vector_clock) written in Objective-C. Vector clocks are useful when building distributed systems.
 
+[![Build Status](https://travis-ci.org/jeremytregunna/JVectorClock.png?branch=master)](https://travis-ci.org/jeremytregunna/JVectorClock)
+
 ## Installation
 
 However you want to install it is well, a matter left up to your better judgement. There are no external dependencies you have to account for, other than basic framework level support.
