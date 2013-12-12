@@ -9,11 +9,10 @@
 #import "JVectorClockTests.h"
 #import "JVectorClock.h"
 
-#define ROOT_NODE_ID 12
-
 @implementation JVectorClockTests
 {
-    uint32_t _nodeID;
+    NSUUID* _nodeID;
+    NSUUID* _rootNodeID;
     JVectorClock* _seed;
 }
 
@@ -21,7 +20,8 @@
 {
     [super setUp];
 
-    _nodeID = 42;
+    _nodeID = [[NSUUID alloc] initWithUUIDString:@"1CCE57EC-9E5F-41DE-8E33-2A1C203E6F4E"];
+    _rootNodeID = [[NSUUID alloc] initWithUUIDString:@"BA6B6C5D-3894-4BF6-AB28-863A6488A1BB"];
     _seed = [[JVectorClock alloc] init];
 }
 
@@ -34,15 +34,15 @@
 - (void)testNewClockHasValueOfZero
 {
     JVectorClock* clock = [[JVectorClock alloc] init];
-    STAssertEquals([clock clockValueForNodeID:42], (NSUInteger)0, @"New clocks have a value of 0");
+    STAssertEquals([clock clockValueForNodeID:_nodeID], (NSUInteger)0, @"New clocks have a value of 0");
 }
 
 - (void)testKnownClockHasValueOfTwo
 {
     JVectorClock* clock = [[JVectorClock alloc] init];
-    [clock forkClockForNodeID:42];
-    [clock forkClockForNodeID:42];
-    STAssertEquals([clock clockValueForNodeID:42], (NSUInteger)2, @"Clocks increment their clock value on fork events");
+    [clock forkClockForNodeID:_nodeID];
+    [clock forkClockForNodeID:_nodeID];
+    STAssertEquals([clock clockValueForNodeID:_nodeID], (NSUInteger)2, @"Clocks increment their clock value on fork events");
 }
 
 - (void)testSeedPrettyPrint
@@ -56,35 +56,35 @@
     JVectorClock* clock = [[JVectorClock alloc] init];
     [clock forkClockForNodeID:_nodeID];
     NSString* prettyString = [clock UTF8String];
-    STAssertEqualObjects(prettyString, @"(42 = 1)", @"Pretty print");
+    STAssertEqualObjects(prettyString, @"(1CCE57EC-9E5F-41DE-8E33-2A1C203E6F4E = 1)", @"Pretty print");
 }
 
 - (void)testPrettyPrintMultiple
 {
     JVectorClock* clock = [[JVectorClock alloc] init];
-    [clock forkClockForNodeID:ROOT_NODE_ID];
+    [clock forkClockForNodeID:_rootNodeID];
     [clock forkClockForNodeID:_nodeID];
     NSString* prettyString = [clock UTF8String];
-    STAssertEqualObjects(prettyString, @"(12 = 1, 42 = 1)", @"Pretty print");
+    STAssertEqualObjects(prettyString, @"(BA6B6C5D-3894-4BF6-AB28-863A6488A1BB = 1, 1CCE57EC-9E5F-41DE-8E33-2A1C203E6F4E = 1)", @"Pretty print");
 }
 
 - (void)testFork
 {
     JVectorClock* clock = [[JVectorClock alloc] init];
     [clock forkClockForNodeID:_nodeID];
-    STAssertEqualObjects([clock UTF8String], @"(42 = 1)", @"Fork 1");
+    STAssertEqualObjects([clock UTF8String], @"(1CCE57EC-9E5F-41DE-8E33-2A1C203E6F4E = 1)", @"Fork 1");
     [clock forkClockForNodeID:_nodeID];
-    STAssertEqualObjects([clock UTF8String], @"(42 = 2)", @"Fork 2");
+    STAssertEqualObjects([clock UTF8String], @"(1CCE57EC-9E5F-41DE-8E33-2A1C203E6F4E = 2)", @"Fork 2");
 }
 
 - (void)testMerge
 {
     JVectorClock* clock1 = [[JVectorClock alloc] init];
-    [clock1 forkClockForNodeID:ROOT_NODE_ID];
+    [clock1 forkClockForNodeID:_rootNodeID];
     JVectorClock* clock2 = [[JVectorClock alloc] init];
     [clock2 forkClockForNodeID:_nodeID];
     JVectorClock* newClock = [clock1 mergeClock:clock2];
-    STAssertEqualObjects([newClock UTF8String], @"(12 = 1, 42 = 1)", @"Merge");
+    STAssertEqualObjects([newClock UTF8String], @"(BA6B6C5D-3894-4BF6-AB28-863A6488A1BB = 1, 1CCE57EC-9E5F-41DE-8E33-2A1C203E6F4E = 1)", @"Merge");
 }
 
 @end

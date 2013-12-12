@@ -8,19 +8,19 @@
 
 #import "JVectorClock.h"
 
-static NSComparisonResult JVectorClockComparisonSort(NSNumber* aNumber, NSNumber* bNumber, void* context)
-{
-    JVectorClockComparisonResult aResult = (JVectorClockComparisonResult)[aNumber charValue];
-    JVectorClockComparisonResult bResult = (JVectorClockComparisonResult)[bNumber charValue];
-
-    if(aResult == JOrderedConcurrent && bResult == JOrderedConcurrent)
-        return NSOrderedSame;
-    else if(aResult < bResult)
-        return NSOrderedAscending;
-    else if(aResult > bResult)
-        return NSOrderedDescending;
-    return NSOrderedSame;
-}
+//static NSComparisonResult JVectorClockComparisonSort(NSUUID* aNumber, NSNumber* bNumber, void* context)
+//{
+//    JVectorClockComparisonResult aResult = (JVectorClockComparisonResult)[aNumber charValue];
+//    JVectorClockComparisonResult bResult = (JVectorClockComparisonResult)[bNumber charValue];
+//
+//    if(aResult == JOrderedConcurrent && bResult == JOrderedConcurrent)
+//        return NSOrderedSame;
+//    else if(aResult < bResult)
+//        return NSOrderedAscending;
+//    else if(aResult > bResult)
+//        return NSOrderedDescending;
+//    return NSOrderedSame;
+//}
 
 @interface JVectorClock ()
 @property (nonatomic, strong) NSMutableDictionary* clockOptions;
@@ -92,12 +92,12 @@ static NSComparisonResult JVectorClockComparisonSort(NSNumber* aNumber, NSNumber
 
 #pragma mark - Vector clock operations
 
-- (void)forkClockForNodeID:(uint64_t)nodeID
+- (void)forkClockForNodeID:(NSUUID*)nodeID
 {
     @synchronized(self)
     {
-        NSNumber* clock = _clockOptions[@(nodeID)];
-        _clockOptions[@(nodeID)] = clock ? @([clock unsignedLongLongValue] + 1) : @1;
+        NSNumber* clock = _clockOptions[nodeID];
+        _clockOptions[nodeID] = clock ? @([clock unsignedLongLongValue] + 1) : @1;
     }
 }
 
@@ -132,9 +132,9 @@ static NSComparisonResult JVectorClockComparisonSort(NSNumber* aNumber, NSNumber
 
 #pragma mark - Retrieving
 
-- (NSUInteger)clockValueForNodeID:(uint64_t)nodeID
+- (NSUInteger)clockValueForNodeID:(NSUUID*)nodeID
 {
-    return [self[@(nodeID)] unsignedLongLongValue];
+    return [self[nodeID] unsignedLongLongValue];
 }
 
 #pragma mark - Pretty printing
@@ -147,7 +147,7 @@ static NSComparisonResult JVectorClockComparisonSort(NSNumber* aNumber, NSNumber
 
     for(NSUInteger i = 0; i < [orderedIds count]; i++)
     {
-        [text appendFormat:@"%@ = %@", orderedIds[i], orderedValues[i]];
+        [text appendFormat:@"%@ = %@", [orderedIds[i] UUIDString], orderedValues[i]];
         if(i + 1 < [orderedIds count])
            [text appendString:@", "];
     }
@@ -161,7 +161,7 @@ static NSComparisonResult JVectorClockComparisonSort(NSNumber* aNumber, NSNumber
 
 - (NSArray*)orderedNodeIDs
 {
-    return [[_clockOptions allKeys] sortedArrayUsingFunction:JVectorClockComparisonSort context:NULL];
+    return [_clockOptions allKeys];
 }
 
 - (NSArray*)orderedValues

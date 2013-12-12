@@ -21,11 +21,11 @@ typedef NS_ENUM(char, JVectorClockComparisonResult)
 - (JVectorClockComparisonResult)compare:(JVectorClock*)other;
 - (BOOL)isConcurrent:(JVectorClock*)other;
 
-- (void)forkClockForNodeID:(uint64_t)nodeID;
+- (void)forkClockForNodeID:(NSUUID*)nodeID;
 - (instancetype)mergeClock:(JVectorClock*)other;
 
 - (id)objectForKeyedSubscript:(id)aKey;
-- (NSUInteger)clockValueForNodeID:(uint64_t)nodeID;
+- (NSUInteger)clockValueForNodeID:(NSUUID*)nodeID;
 
 - (NSString*)UTF8String;
 
